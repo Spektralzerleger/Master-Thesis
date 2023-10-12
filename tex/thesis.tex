@@ -1,0 +1,57 @@
+%Compiling with XeLaTeX
+\documentclass[twoside,
+			   openright, %chapter starts on the right, take care of the manually placed cleardoublepage commands
+			   parskip=half, %1.5 line distance
+			   11pt]{scrreprt}
+
+%Presettings			   
+\include{meta/settings}
+\include{meta/macros}
+
+
+\begin{document}
+
+\pagenumbering{roman}
+%Introductory stuff, abstracts and toc
+\include{content/00_titlepage}
+\include{content/abstract}
+{\hypersetup{linkcolor=black}
+\tableofcontents  
+}
+\cleardoublepage
+
+
+\setcounter{tocdepth}{1}
+\pagenumbering{arabic}
+
+%Main part
+	\include{content/01_introduction}
+	\include{content/02_functional}
+	\include{content/03_coldatoms}
+	\include{content/04_bcs-bec}
+	\include{content/05_polaron}
+	\include{content/conclusion}
+
+
+%Appendices
+\appendix{
+	\include{appendices/appendix}
+	\include{appendices/numerics}
+}
+
+\cleardoublepage
+\pagenumbering{Roman}
+%References, Figures etc.
+\thispagestyle{plain}
+\addcontentsline{toc}{chapter}{References}
+\nocite{*}
+\printbibliography[title=References]
+\cleardoublepage
+
+{\hypersetup{linkcolor=black}
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+}	
+\cleardoublepage
+\include{content/acknowledgements}
+\end{document}

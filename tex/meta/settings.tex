@@ -1,0 +1,136 @@
+%Personel Data
+\title{Spectral Functions of Ultracold Fermi Gases \\ from Dyson-Schwinger Equations}
+\author{Eugen Dizer}
+\date{\today}
+
+%Statements
+\newtheorem{statements}{Statements}[chapter]
+
+
+%Page Layout and Geometry
+\usepackage{fancyhdr}
+\fancyhfoffset{0pt}
+
+\usepackage[a4paper,
+			width = 150mm,
+			top = 30mm,
+		    bottom=30mm,
+		    bindingoffset = 7mm
+		    ]{geometry}
+
+\usepackage{nicefrac}
+
+
+%Chapter Layout (simple delete for standard appearance)
+\KOMAoption{chapterprefix}{true}
+\renewcommand*\raggedchapter{\centering}
+\RedeclareSectionCommand[beforeskip=0pt,afterskip=2\baselineskip]{chapter}
+\setkomafont{chapterprefix}{\Large\normalfont}
+\addtokomafont{disposition}{\rmfamily}
+\renewcommand*{\chapterformat}{%
+  \chapappifchapterprefix{\nobreakspace}\thechapter%
+  \IfUsePrefixLine{%
+    \par\nobreak\vspace{-\parskip}\vspace{-.6\baselineskip}%
+    \rule{0.9\textwidth}{0pt}\vspace{-1\baselineskip}%
+  }{\enskip}%
+}
+
+%Quotes
+\makeatletter
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+%Bold Math in Titles
+\makeatletter
+\DeclareRobustCommand*{\bfseries}{%
+   \not@math@alphabet\bfseries\mathbf
+   \fontseries\bfdefault\selectfont
+   \boldmath
+}
+\makeatother
+
+
+%Page Layout For Beginning Of Chapter
+\fancypagestyle{plain}{%
+	\fancyhf{}  %clear all header and footer fields
+	\fancyfoot[C]{\bfseries{\thepage}}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	}
+
+%Page Layout For Other Pages
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection ~ \ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{ \chaptername\ \thechapter ~ \ #1}{}}
+	\fancyhf{}
+	\fancyhead[LE]{\bfseries{\thepage}\ ~ \normalfont\leftmark}
+	\fancyhead[RO]{\rightmark\ ~ \bfseries{\thepage}} 	
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	
+	
+%Headings
+\setkomafont{section}{\textsf\bfseries\Large}
+\setkomafont{subsection}{\textsf\bfseries\large}
+\setkomafont{subsubsection}{\textsf\bfseries\normalsize}
+
+
+%Maths and Units
+\usepackage{amsmath, amsthm, amssymb, commath, mathtools, bm} %amsthm conflicts with ntheorem
+\usepackage{revsymb}
+\usepackage{slashed}
+%\usepackage[hyperref]{ntheorem}
+\usepackage{xfrac}
+
+
+%Tikz and Plots
+\usepackage{tikz}
+\usepackage{pgf}
+
+
+\usepackage{calc}
+
+%Tables
+\usepackage{array} %math mode in tables
+\usepackage{booktabs} %hline rules
+
+%Language Settings and Microtype
+\usepackage{fontspec, xunicode}
+%\usepackage[utf8]{inputenc}
+%\usepackage{lmodern}
+\usepackage{microtype}
+
+\usepackage[ngerman,english]{babel}
+\usepackage{csquotes}
+
+%Useful Packages
+\usepackage{graphicx} %including images
+\usepackage{pdfpages} %including pdfs
+\usepackage{float} %better positioning for float environments
+\usepackage{blindtext} %for testing the output
+\usepackage[labelfont=bf]{caption} %nice captions
+\usepackage{subfigure} %for multiple plots
+
+
+%Appendix and Bibliography
+\usepackage[toc,page]{appendix}
+
+\usepackage{etoolbox}
+\appto\appendix{\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}}
+
+%reinstate the correct level for list of tables and figures
+\appto\listoffigures{\addtocontents{lof}{\protect\setcounter{tocdepth}{1}}}
+\appto\listoftables{\addtocontents{lot}{\protect\setcounter{tocdepth}{1}}}
+
+\usepackage[backend=biber]{biblatex}
+\bibstyle{bib/utphys.bst}
+\addbibresource{bib/msc.bib}
+
+%Colorlinks etc.
+\usepackage[colorlinks=True]{hyperref}
+\hypersetup{allcolors=BScBlue}

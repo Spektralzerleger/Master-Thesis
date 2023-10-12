@@ -1,0 +1,21 @@
+%Statement environment
+\newcommand{\statement}[1]{\stepcounter{statements}\begin{center}
+	\textbf{#1}
+	\end{center}
+}
+
+%Color Settings
+\usepackage{xcolor}
+\definecolor{BScRed}{RGB}{157,0,0}
+\definecolor{BScBlue}{RGB}{1,1,141}
+
+
+%Useful definitions
+\newcommand{\rstate}[1]{\left\vert #1 \right\rangle}
+\newcommand{\lstate}[1]{\left\langle #1 \right\vert}
+\newcommand{\expectation}[1]{\left\langle #1 \right\rangle}
+\newcommand{\vacuum}[1]{\langle 0 \vert #1 \vert 0 \rangle}
+\newcommand{\xint}[1]{\int d^3x \ #1}
+\newcommand{\pint}[1]{\int \frac{d^4p}{(2\pi)^4} \ #1 \ e^{-i p (x-x')}}
+
+

@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+
+% Diagram axis
+\draw[-latex, thick] (0.5,0) -- (4.6,0) node[right] {$B$};
+\draw[-latex, thick] (0.5,-1.5) -- (0.5,1.5) node[left] {$a(B)$};
+\draw[thick] (0.4,0) node[align=center] {0};
+
+% 1/x (blue)
+\draw[domain=0.5:2.242, samples=200, variable=\x, blue, thick] plot (\x, {(-0.07/(\x-2.3)+0.2});
+\draw[domain=2.346:4.2, samples=200, variable=\x, blue, thick] plot (\x, {(-0.07/(\x-2.3)+0.2});
+
+\draw[latex-latex] (0.9,0) -- (0.9,0.2) node[midway, right] {$a_{\mathrm{bg}}$};
+\draw[latex-latex] (2.3,0.3) -- (2.65,0.3) node[midway, above] {$\Delta B$};
+\draw (2.15,-0.15) node[align=center] {$B_0$};
+\draw[-, dashed] (0.5,0.2) -- (4.2,0.2);
+\draw[-, dashed] (2.3,-1.32) -- (2.3,1.38);
+
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.6]
+  % Draw axes
+  \draw[-latex] (-0.1,0) -- (3,0) node[right] {$p/k_F$};
+  \draw[-latex] (0,-1.1) -- (0,2) node[left] {$\omega/\varepsilon_F$};
+  
+  \draw[domain=0:2.4, samples=400, variable=\x, blue!70, thick] plot (\x, {0.5*((\x^2-2)^2+0.4)^(1/2)});
+  
+  \draw[latex-latex] (1.4142,0) -- (1.4142,0.31) node[right] {};
+  \draw (1.52,0.18) node[right] {$\Delta$};
+
+\end{tikzpicture}
+\end{document}
